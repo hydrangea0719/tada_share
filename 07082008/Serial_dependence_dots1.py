@@ -99,8 +99,8 @@ ii=0
 for ii in range(trial_N):
 
     # dot の個数．硬貨の枚数．
-    dots_NR = random.randint(6,15) 
-#    dots_NR = 1  # debug 用．画像を1枚だけ表示する．
+    coin_N = random.randint(6,15) 
+#    coin_N = 1  # debug 用．画像を1枚だけ表示する．
     
     # grid の準備
     grid_ = grid[:]
@@ -112,7 +112,7 @@ for ii in range(trial_N):
     # ========================================
     # 各画像の位置を1つずつ設定
     i=0
-    for i  in range(dots_NR):
+    for i  in range(coin_N):
         
 #        # 極座標 r, theta を使用
 #        # random.uniform(a, b) は a, b 間の float 型の乱数を生成
