@@ -174,7 +174,7 @@ for ii in range(trial_N):
 
     with open(file_name_csv, "a", encoding = "cp932") as f:
             writer = csv.writer(f, lineterminator = "\n")
-            writer.writerow([subj_id,ii,dots_NR,stim_time])
+            writer.writerow([subj_id,ii,coin_N,stim_time])
 logging.flush()
 
 win.close()
