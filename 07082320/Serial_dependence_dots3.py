@@ -75,10 +75,10 @@ win = visual.Window(
 # coin size
 size_coin = 70
 # grid
-jitter = 15
+jitter = 20
 grid_width = size_coin + jitter * 2
-grid_x = list(range(-200, 201, int(grid_width)))
-grid_y = list(range(-100, 101, int(grid_width)))
+grid_x = list(range(-220, 221, int(grid_width)))
+grid_y = list(range(-110, 111, int(grid_width)))
 grid = []
 for i in grid_x:
     for j in grid_y:
