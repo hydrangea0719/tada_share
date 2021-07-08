@@ -80,10 +80,10 @@ jitter_width = 20
 grid_width_x = math.ceil(size_coin / 2 + jitter_width)
 grid_width_y = math.ceil( (size_coin / 2 + jitter_width) * 1.74 )
 
-grid_x1 = list(range(-200, 201, grid_width_x))[0::2]  # -200, -100, 
-grid_x2 = list(range(-200, 201, grid_width_x))[1::2]  # -150, -50,
-grid_y1 = list(range(-150, 150, grid_width_y))[0::2]  # -150, 50, 
-grid_y2 = list(range(-150, 150, grid_width_y))[1::2]  # -50, 150, 
+grid_x1 = list(range(-200, 201, grid_width_x))[0::2]
+grid_x2 = list(range(-200, 201, grid_width_x))[1::2]
+grid_y1 = list(range(-150, 150, grid_width_y))[0::2]
+grid_y2 = list(range(-150, 150, grid_width_y))[1::2]
 grid = []
 for i in grid_x1:
     for j in grid_y1:
