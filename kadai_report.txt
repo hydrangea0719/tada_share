@@ -1,0 +1,105 @@
+
+いくつかのデータファイルを使用して非線形カーネルによる SVM を実行し、alpha の変化と制約条件の関係を検討する。
+プログラム追記して出力した部分が alpha．
+
+alpha はラグランジュの未定乗数法における未定係数の1つ．
+
+
+nSV:
+number of SVs for each class
+各クラスごとの SV の数
+(SV: support vector のこと)
+
+rho is the bias term (-b).
+
+obj: 
+objective value
+
+for(i=0;i<l;i++) v += alpha[i] * (G[i] + p[i]);
+si->obj = v/2;
+		
+G: 
+gradient
+
+p: 
+return some position p where [p,len) need to be filled
+(p >= len if nothing needs to be filled)
+
+
+
+case1.txt
+1 1:0 2:0
+-1 1:1 2:1
+-1 1:2 2:2
+
+(base) tadamizuki@tadamizuki-H110M-S03:~/デスクトップ/homework/libsvm-3.25$ ./svm-train -t 0 case1.txt
+0.000000 0.000000 0.000000 
+1.000000 1.000000 0.000000 
+*
+optimization finished, #iter = 1
+nu = 0.666667
+obj = -1.000000, rho = -1.000000
+nSV = 2, nBSV = 2
+Total nSV = 2
+
+
+
+case2.txt
+1 1:0 2:0
+-1 1:1 2:1
+-1 1:0 2:1
+
+(base) tadamizuki@tadamizuki-H110M-S03:~/デスクトップ/homework/libsvm-3.25$ ./svm-train -t 0 case2.txt
+0.000000 0.000000 0.000000 
+1.000000 0.000000 1.000000 
+*
+optimization finished, #iter = 1
+nu = 0.666667
+obj = -1.500000, rho = -0.000000
+nSV = 2, nBSV = 2
+Total nSV = 2
+
+
+
+case3.txt
+1 1:0 2:0
+-1 1:0 2:1
+-1 1:1 2:0.5
+-1 1:2 2:1
+
+(base) tadamizuki@tadamizuki-H110M-S03:~/デスクトップ/homework/libsvm-3.25$ ./svm-train -t 0 case3.txt
+0.000000 0.000000 0.000000 0.000000 
+1.000000 1.000000 0.000000 0.000000 
+1.000000 0.600000 0.400000 0.000000 
+*
+optimization finished, #iter = 2
+nu = 0.500000
+obj = -1.600000, rho = 0.200000
+nSV = 3, nBSV = 1
+Total nSV = 3
+
+
+
+case_test1.txt
+1 1:0 2:10
+-1 1:9 2:0
+-1 1:10 2:10
+
+(base) tadamizuki@tadamizuki-H110M-S03:~/デスクトップ/homework/libsvm-3.25$ ./svm-train -t 0 case_test1.txt
+0.000000 0.000000 0.000000 
+0.020000 0.000000 0.020000 
+0.020000 0.001980 0.018020 
+0.020198 0.001980 0.018218 
+*.0.020198 0.002000 0.018198 
+*
+optimization finished, #iter = 4
+nu = 0.013465
+obj = -0.020200, rho = -0.799889
+nSV = 3, nBSV = 0
+Total nSV = 3
+
+
+
+
+
+
